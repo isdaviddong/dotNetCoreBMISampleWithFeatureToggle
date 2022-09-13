@@ -1,0 +1,65 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebBMI.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <title>.net core BMI</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- bootstrap 4.3.1 -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h5>.net core BMI example</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="card">
+                        <span class="card-header bg-primary" style="color:white">
+                            計算BMI
+                        </span>
+                        <div class="card-body">
+                            @if (Model.isEnabledFeatureGender)
+                            {
+                                <div>
+                                    <label>性別:</label>
+                                    <br />
+                                    <input name="fieldGender" style="margin-left:30px" type="radio" />男
+                                    <input name="fieldGender" type="radio" /> 女
+                                </div>
+                            }
+                            <label>身高:</label>
+                            <input name="fieldHeight" class="form-control" type="text" value="@Model.fieldHeight" />
+                            <label>體重:</label>
+                            <input name="fieldWeight" class="form-control" type="text" value="@Model.fieldWeight" />
+                            <br />
+                            <button type="submit" asp-page-handler="Calculate" class="btn btn-primary">計算</button>
+                            <label>
+                                BMI :  @Model.BmiResult
+                            </label>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
