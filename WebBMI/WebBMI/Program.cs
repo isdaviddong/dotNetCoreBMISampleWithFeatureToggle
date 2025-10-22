@@ -30,7 +30,7 @@ namespace WebBMI
                     // This section can be used to pull feature flag configuration from Azure App Configuration
                     builder.AddAzureAppConfiguration(o =>
                     {
-                        o.Connect("Endpoint=https://testappconfig20251022.azconfig.io;Id=tyC/;Secret=6i89G75ih2tUAr0mN9mSFro7BJHbQQanL5aRnpu6esRXekZWHUzNJQQJ99BJACYeBjFPUJJDAAACAZAC1pDy");
+                        o.Connect("Endpoint=https://___________.azconfig.io;Id=tyC/;Secret=_________________________");
                         o.Select(KeyFilter.Any);
                         o.UseFeatureFlags(FeatureFlagconfig =>
                         {
